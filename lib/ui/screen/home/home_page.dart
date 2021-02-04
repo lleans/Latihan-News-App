@@ -37,12 +37,15 @@ class _HomePageState extends State<HomePage> {
                 ),
               );
             } else if (snapshot.hasError) {
-              return Text(ApiExceptionMapper.toErrorMessage(snapshot.error).toString());
+              return Text(
+                  ApiExceptionMapper.toErrorMessage(snapshot.error).toString());
             } else {
               return ListView(
-                  children: snapshot.data.articles.map((news) {
-                return ItemNewsWidget(news);
-              }).toList());
+                  children: snapshot.data.articles.map(
+                (news) {
+                  return ItemNewsWidget(news);
+                },
+              ).toList());
             }
           },
         ),
